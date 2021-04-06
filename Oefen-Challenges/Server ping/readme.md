@@ -1,4 +1,4 @@
-![ping machine](https://user-images.githubusercontent.com/73792386/113689972-306e6200-96cb-11eb-8165-bcce9da6b475.PNG)
+
 # Een simpele server checker:
 Deze server checker pingt je server een aantal keren. Daarna kan je de resultaten zien in een window.
 
@@ -33,3 +33,5 @@ Aanmaken van window **root**
 button1 = Button(text='Ping host:', command=getPing)
  ```
  **x1** en **x2** zijn de 2 inputs die de user geeft.
+resultaat:
+![ping machine](https://user-images.githubusercontent.com/73792386/113689972-306e6200-96cb-11eb-8165-bcce9da6b475.PNG)
