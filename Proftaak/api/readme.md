@@ -142,9 +142,4 @@ while True:
   print(counter)
   counter += 1
 ```
-Het gaat door elke regel en gebruikt ***mycursor.execute()*** voor de MySQL Query.
-
-
-Zoals Lars al zei:
-
-> Jesus wat is python makkelijk
+Het gaat door elke regel en gebruikt ***mycursor.execute()*** voor de MySQL Query
