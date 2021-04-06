@@ -1,3 +1,4 @@
+![ping machine](https://user-images.githubusercontent.com/73792386/113689972-306e6200-96cb-11eb-8165-bcce9da6b475.PNG)
 # Een simpele server checker:
 Deze server checker pingt je server een aantal keren. Daarna kan je de resultaten zien in een window.
 
