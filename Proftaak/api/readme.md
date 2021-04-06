@@ -6,7 +6,7 @@ hierin staan vooral bestanden waarmee ik ben gaan testen en oefenen met een api 
 doormiddel van een GET request kan ik de FIND3 informatie uit de database halen. Er zijn **2** verschillende soorten requests, ik heb ze alletwee gebruikt en gekeken welke het makkelijkst is.
 
 
-```
+```Python
 location_data_all = requests.get("https://pte2.duckdns.org/api/v1/locations/eersel") #JSON request
 locoation_database = requests.get("https://pte2.duckdns.org/api/v1/database/eersel") #DataBase request
 ```
@@ -17,7 +17,7 @@ Het **JSON** request geeft een JSON bestandje. Deze kan je dan strakts lezen en 
 ### Een bestand aanmaken:
 Voor de JSON request is het handig om de response in een bestandje te zetten, dit is makkelijk te doen met **write**.
 Voor de naam van het bestandje gebruik ik de **datetime** library, zo kan ik in elk bestandje de datum en tijd inzetten. Ik heb zelf daarvoorr een string gemaakt, je had ook al kant en klare dingen in de library maar deze werkte niet doordat hier aparte tekens instonden, dat vind windows niet zo leuk.
-```
+```Python
 def bestand_maken(obj, file_name):
 
   datum = datetime.datetime.now()
@@ -34,7 +34,7 @@ Ik maar bij de SQL request geen bestandje aan omdat je het meteen in de database
 Om JSON te converten naar SQL moet je zelf de ERD opzet verzinnen en maken, daar heb ik niet zoveel werk ingestopt omdat dit alleen nog maar voor te oefenen is. Als ik dit straks met de proftaak samen met de mannen van de realtime viewer ga maken ga ik hier zeker langer overna denken.
 
 Eerst maak ik connectie met de MySQL database, deze heb ik thuis op Docker draaien,
-```
+```Python
 mydb = mysql.connector.connect(
   host="192.168.30.99",
   user="iraca",
@@ -45,7 +45,7 @@ mydb = mysql.connector.connect(
 ```
 Daarna kijk ik of ik nog de tables erin moet zetten, ik check dus of ze al bestaan. Zo niet zet ik ze erin:
 (Gevonden op internet: https://stackoverflow.com/questions/17044259/python-how-to-check-if-table-exists)
-```
+```Python
 def checkTableExists(dbcon, tablename):
     dbcur = dbcon.cursor()
     dbcur.execute("""
@@ -68,12 +68,12 @@ FIND3 maakt gebruik van een SQLite file, deze lijkt erg veel op die van MySQL ma
 Ik moet dus in die string een aantal dingen veranderen:
 
 Elke regel in een list zetten:
-```
+```Python
 f = locoation_database.text
 all_sql_lines = f.splitlines()
 ```
 Eerst moet ik alle lijnen waar geen INSERT instaan weghalen, ik kijk dus of er INSTERT in een regel staat en zet die regel in een andere list:
-```
+```Python
 while True:
   if "INSERT" in all_sql_lines[i]:
     print('success')
@@ -87,7 +87,7 @@ while True:
     break
 ```
 Daarna kan de bij de INSERT regels de string aanpassen: (dit is erg slechte code maar het werkt)
-```
+```Python
 new_insert_list = []
 new_insert_list_2 = []
 new_insert_list_3 = []
@@ -114,7 +114,7 @@ Met deze regel print hij wat
 print(data_file["locations"][0]["sensors"]["s"]["wifi"])
 ```
 JSON:
-```
+```json
 {
     "locations": [
         {
@@ -133,7 +133,7 @@ Wat hij print:
 ```
 ### Het in de MySQL server zetten:
 Als de de INSERT regels dan goed in de list's staan kan ik de regels in de MySQL server zetten:
-```
+```Python
 while True:
   if counter == len(new_insert_list_4):
     break
