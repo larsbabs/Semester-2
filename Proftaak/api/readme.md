@@ -1,13 +1,6 @@
 # API
 hierin staan vooral bestanden waarmee ik ben gaan testen en oefenen met een api in Python. Ook probeer ik die api te combineren met een Database zodat andere mensen straks erbij kunnen om meer met de data te kunnen doen.
 
-
-
-## Readme bestanden testen:
-Zoals Lars al zei:
-=======
->>>>>>> 021951e743124811aee593c6bb7e4d92f1bf68b2
-
 ## Deze code heeft 4 onderdelen/taken
 ### Het opvragen van de informatie
 doormiddel van een GET request kan ik de FIND3 informatie uit de database halen. Er zijn **2** verschillende soorten requests, ik heb ze alletwee gebruikt en gekeken welke het makkelijkst is.
