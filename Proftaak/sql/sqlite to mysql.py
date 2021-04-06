@@ -3,4 +3,5 @@
 #Eventueel kan ik ook nog kijken naar het Json gedeelte
 
 
-
+import sqlite3_to_mysql
+sqlite3mysql --help
