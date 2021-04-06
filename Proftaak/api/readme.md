@@ -2,7 +2,7 @@
 hierin staan vooral bestanden waarmee ik ben gaan testen en oefenen met een api in Python. Ook probeer ik die api te combineren met een Database zodat andere mensen straks erbij kunnen om meer met de data te kunnen doen.
 
 ## Deze code heeft 4 onderdelen/taken
-### Het opvragen van de informatie
+### 1. Het opvragen van de informatie
 doormiddel van een GET request kan ik de FIND3 informatie uit de database halen. Er zijn **2** verschillende soorten requests, ik heb ze alletwee gebruikt en gekeken welke het makkelijkst is.
 
 
@@ -14,7 +14,7 @@ locoation_database = requests.get("https://pte2.duckdns.org/api/v1/database/eers
 Het **database** request geeft in een SQLite format de SQL data door, deze moet je dus converteren naar het MySQL format.
 Het **JSON** request geeft een JSON bestandje. Deze kan je dan strakts lezen en uit elkaar halen om de informatie te verdelen
 
-### Een bestand aanmaken:
+### 2. Een bestand aanmaken:
 Voor de JSON request is het handig om de response in een bestandje te zetten, dit is makkelijk te doen met **write**.
 Voor de naam van het bestandje gebruik ik de **datetime** library, zo kan ik in elk bestandje de datum en tijd inzetten. Ik heb zelf daarvoorr een string gemaakt, je had ook al kant en klare dingen in de library maar deze werkte niet doordat hier aparte tekens instonden, dat vind windows niet zo leuk.
 ```Python
@@ -30,7 +30,7 @@ def bestand_maken(obj, file_name):
 ```
 Ik maar bij de SQL request geen bestandje aan omdat je het meteen in de database zet ipv een bestandje.
 
-### Converteren naar MySQL:
+### 3. Converteren naar MySQL:
 Om JSON te converten naar SQL moet je zelf de ERD opzet verzinnen en maken, daar heb ik niet zoveel werk ingestopt omdat dit alleen nog maar voor te oefenen is. Als ik dit straks met de proftaak samen met de mannen van de realtime viewer ga maken ga ik hier zeker langer overna denken.
 
 Eerst maak ik connectie met de MySQL database, deze heb ik thuis op Docker draaien,
@@ -63,7 +63,7 @@ def checkTableExists(dbcon, tablename):
 
 Nu kunnen we dus kiezen om gebruik te maken van de Database of het JSON bestandje.
 
-#### Database:
+#### 3.1 Database:
 FIND3 maakt gebruik van een SQLite file, deze lijkt erg veel op die van MySQL maar het werkt niet samen.
 Ik moet dus in die string een aantal dingen veranderen:
 
@@ -105,7 +105,7 @@ while True:
     break
 ```
 Het zet de regels elke keer in een nieuwe list omdat ik niet meerdere dingen tegelijkertijd kan replacen.
-#### JSON:
+#### 3.2 JSON:
 Om de JSON regels te splitten maak ik gebruik van de json library.
 Ik ben hier veels te lang mee bezig geweest, ik ben er gelukkig wel uitgekomen. Toen ik erachter kwam dat de API ook een Database dump heeft ben ik meteen daarmee begonnen omdat dat veel tijd scheeld.
 
@@ -129,7 +129,7 @@ Wat hij print:
 ```
 "3e:94:ed:34:9b:e5": -94,
 ```
-### Het in de MySQL server zetten:
+### 4. Het in de MySQL server zetten:
 Als de de INSERT regels dan goed in de list's staan kan ik de regels in de MySQL server zetten:
 ```Python
 while True:
