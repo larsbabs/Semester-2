@@ -174,5 +174,3 @@ CREATE INDEX sensors_devices ON sensors (deviceid);
 COMMIT;"""
 #)
 #print(locoation_database.text)
-
-#print("dit is weer een git commit test")
