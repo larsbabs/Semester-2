@@ -4,4 +4,3 @@
 
 
 
-open(scripts/sqlite3mysql.exe)
