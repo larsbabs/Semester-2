@@ -175,4 +175,4 @@ COMMIT;"""
 #)
 #print(locoation_database.text)
 
-#print("dit is een git commit test")
+#print("dit is weer een git commit test")
