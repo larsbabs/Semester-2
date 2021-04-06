@@ -115,7 +115,6 @@ print(data_file["locations"][0]["sensors"]["s"]["wifi"])
 ```
 JSON:
 ```json
-{
     "locations": [
         {
              "s": {
@@ -125,7 +124,6 @@ JSON:
                             }
                    }
          }
-}
 ```
 Wat hij print:
 ```
