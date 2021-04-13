@@ -4,7 +4,7 @@ import datetime
 import mysql.connector
 import pyodbc
 
-location_data_all = requests.get('https://pte2.duckdns.org/api/v1/locations/eersel')
+location_data_all = requests.get('https://pte2.duckdns.org/api/v1/locations/oil230')
 locoation_database = requests.get("https://pte2.duckdns.org/api/v1/database/eersel")
 file_name_pre = "response"
 date = datetime.datetime.now()
